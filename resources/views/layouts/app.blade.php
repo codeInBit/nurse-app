@@ -18,6 +18,8 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    @livewireStyles
 </head>
 <body>
     <div id="app">
@@ -76,8 +78,17 @@
         </nav>
 
         <main class="py-4">
-            @yield('content')
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-8">
+                        <div class="card">
+                            @yield('content')
+                        </div>
+                    </div>
+                </div>
+            </div>
         </main>
     </div>
+    @livewireScripts
 </body>
 </html>

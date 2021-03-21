@@ -14,6 +14,7 @@ class DatabaseSeeder extends Seeder
     public function run()
     {
         $this->call(NurseAndAdminUserSeeder::class);
+        $this->call(CareMeasureSeeder::class);
         \App\Models\User::factory(10)->create();
     }
 }
