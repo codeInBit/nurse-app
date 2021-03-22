@@ -39,8 +39,6 @@ class PreventiveCareMeasureForm extends Component
         $this->reasons = $this->status ? Status::find($this->status)->reasons : $this->statuses->first()->reasons;
         $this->patients = User::patient()->latest()->get();
         $this->activePatient = $this->activePatient ? User::find($this->activePatient) : User::patient()->first();
-        // $this->activePatient = $this->activePatient ? User::find($this->activePatient->id)->id : User::patient()->first();
-
 
         return view('livewire.preventive-care-measure-form')
             ->extends('layouts.app');
@@ -63,6 +61,7 @@ class PreventiveCareMeasureForm extends Component
     {
         $this->validate();
         $this->resetInputFields();
+        //TODO
     }
 
     public function cancel()
