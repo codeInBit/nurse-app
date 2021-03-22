@@ -25,5 +25,5 @@ Test are written for Livewire components.
 - Run the command *php artisan migrate*
 
 
-The [HEROKU](#) link to view the project live.
+The [HEROKU](http://lanre-nurse-app.herokuapp.com/public/) link to view the project live.
 

@@ -74,7 +74,7 @@ class PreventiveCareMeasureTable extends Component
         $this->resetInputFields();
         $this->updateMode = false;
   
-        session()->flash('message', 'Preventive care measure was successfully.');
+        session()->flash('message', 'Preventive care measure was updated successfully.');
     }
 
     public function cancel()
