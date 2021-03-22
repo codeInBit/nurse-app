@@ -21,3 +21,4 @@ Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/admin', App\Http\Livewire\PreventiveCareMeasureTable::class)->middleware('admin');
+Route::get('/nurse', App\Http\Livewire\PreventiveCareMeasureForm::class)->middleware('nurse');

@@ -41,6 +41,11 @@
                                         </a>
                                     </th>
                                     <th>
+                                        <a role="button">
+                                            Frequency
+                                        </a>
+                                    </th>
+                                    <th>
                                         Edit
                                     </th>
                                 </tr>
@@ -49,6 +54,7 @@
                                 @foreach ($preventiveCareMeasures as $preventiveCareMeasure)
                                     <tr>
                                         <td>{{ $preventiveCareMeasure->name }}</td>
+                                        <td>{{ $preventiveCareMeasure->frequency }}</td>
                                         <td>
                                             <button wire:click="edit('{{ $preventiveCareMeasure->id }}')" class="btn btn-sm btn-primary">
                                             Edit

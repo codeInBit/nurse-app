@@ -12,11 +12,12 @@ class PreventiveCareMeasureTable extends Component
     use WithPagination;
 
     public $search = '';
-    public $name, $preventiveCareMeasureId;
+    public $name, $frequency, $preventiveCareMeasureId;
     public $updateMode = false;
 
     protected $rules = [
-        'name' => 'required|unique:care_measures'
+        'name' => 'required|unique:care_measures',
+        'frequency' => 'required'
     ];
 
     public function render()
@@ -31,6 +32,7 @@ class PreventiveCareMeasureTable extends Component
 
     private function resetInputFields(){
         $this->name = '';
+        $this->frequency = '';
     }
 
     public function store()
@@ -39,7 +41,8 @@ class PreventiveCareMeasureTable extends Component
 
         CareMeasure::create([
             'name' => $this->name,
-            'slug' => Str::slug($this->name)
+            'slug' => Str::slug($this->name),
+            'frequency' => $this->frequency,
         ]);
 
         $this->resetInputFields();
@@ -52,6 +55,7 @@ class PreventiveCareMeasureTable extends Component
         $preventiveCareMeasure = CareMeasure::findOrFail($id);
         $this->preventiveCareMeasureId = $id;
         $this->name = $preventiveCareMeasure->name;
+        $this->frequency = $preventiveCareMeasure->frequency;
   
         $this->updateMode = true;
     }
@@ -63,7 +67,8 @@ class PreventiveCareMeasureTable extends Component
         $post = CareMeasure::find($this->preventiveCareMeasureId);
         $post->update([
             'name' => $this->name,
-            'slug' => Str::slug($this->name)
+            'slug' => Str::slug($this->name),
+            'frequency' => $this->frequency,
         ]);
   
         $this->resetInputFields();

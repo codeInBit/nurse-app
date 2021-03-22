@@ -46,5 +46,26 @@ class User extends Authenticatable
      */
     protected $casts = [
         'email_verified_at' => 'datetime',
+        'is_nurse' => 'boolean',
+        'is_admin' => 'boolean',
     ];
+
+    public static function patient()
+    {
+        return static::query()->whereIsNurse(false)->whereIsAdmin(false);
+    }
+
+    /**
+     * The preventive care measure that belong to the user.
+     */
+    public function preventiveCareMeasures()
+    {
+        return $this->belongsToMany(
+            "App\Models\CareMeasure",
+            "care_measure_user",
+            "user_id",
+            "care_measure_id"
+        )->withPivot('id', 'reason_status_id', 'main_reason')
+        ->withTimestamps();
+    }
 }

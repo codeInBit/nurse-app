@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Auth;
 
-class IsAdmin
+class IsNurse
 {
     /**
      * Handle an incoming request.
@@ -17,7 +17,7 @@ class IsAdmin
      */
     public function handle(Request $request, Closure $next)
     {
-        if (Auth::user() &&  Auth::user()->is_admin == true) {
+        if (Auth::user() &&  Auth::user()->is_nurse == true) {
             return $next($request);
         }
         return redirect('/');
